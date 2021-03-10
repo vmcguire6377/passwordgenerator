@@ -1,0 +1,2 @@
+System.register(["./chunk-vendor.js","./chunk-frameworks.js"],(function(){"use strict";var t,n;return{setters:[function(n){t=n.a},function(t){n=t.an}],execute:function(){const e=["Asia/Calcutta","Asia/Kolkata"];t(".js-promo-satellite",{constructor:HTMLElement,initialize(t){const s=n(),i=!s||!e.includes(s);t.hidden=!!i}})}}}));
+//# sourceMappingURL=promo-satellite-9d42d6b8.js.map
