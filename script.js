@@ -55,10 +55,10 @@ writePassword = function () {
   }
   else if (includeSymbols === true) {
     charSet = charSet + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-
+randomPasswordCreator();
   }
 }
-randPassword = function () {
+randomPasswordCreator = function () {
 
 
   document.getElementById('textContent').innerHTML = "randPassword";
@@ -69,7 +69,7 @@ randPassword = function () {
 
 
 
-    console.log(randPassword);
+    console.log(randomPasswordCreator);
     return randPassword;
   }
 }
