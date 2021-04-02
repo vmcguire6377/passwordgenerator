@@ -1,11 +1,16 @@
-// Assignment code here
 userLength = function () {
 
+  var includeCapitals = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var includeLowerCase = "abcdefghijklmnopqrstuvwxyz"
+  var includeNumbers = "0123456789"
+  var includeSymbols = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+
+  var password = "generatePassword"
   // Get references to the #generate element
   var generateBtn = document.querySelector("#generate")
   addEventListener('click', event => {
 
-    userLength = Number(prompt("Please choose a password length between 8 and 128 characters."));
+    userLength = prompt("Please choose a password length between 8 and 128 characters.");
     console.log(userLength);
 
 
@@ -27,12 +32,11 @@ userLength = function () {
     else {
       window.alert("You did not choose a valid character type. Please try again.")
     }
-
   })
 
   // Write password to the #password input
-  function writePassword() {
-    var password = generatePassword();
+    writePassword = function (includeCapitals, includeLowerCase, includeNumbers, includeSymbols) {
+ 
     var passwordText = document.querySelector("#password", userLength);
     var charSet = ""
     passwordText.value = password
@@ -50,7 +54,7 @@ userLength = function () {
     }
 
 
-    function randPassword() {
+      randPassword = function (userLength, password) {
       var randPassword = "";
       for (var i = 0; i < userLength; i++) {
         //picks a character within charSet at index of random number
@@ -60,7 +64,13 @@ userLength = function () {
       console.log(randPassword);
       return randPassword;
     }
-  }
-}  
+  }}
+  
 
 userLength();
+writePassword();
+
+
+
+
+
