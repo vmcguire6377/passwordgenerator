@@ -61,15 +61,15 @@ randomPasswordCreator();
 randomPasswordCreator = function () {
 
 
-  document.getElementById('textContent').innerHTML = "randPassword";
 
+var count = 0;
   for (var i = 0; i < userLength; i++) {
     //picks a character within charSet at index of random number
-    randPassword += charSet.charAt(Math.floor(Math.random() * charSet.userLength));
+    randPassword = charSet.charAt(Math.floor(Math.random() * charSet.userLength));
+    count = count + 1;
 
 
-
-    console.log(randomPasswordCreator);
+    console.log(randPassword);
     return randPassword;
   }
 }
