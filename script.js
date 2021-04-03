@@ -5,71 +5,69 @@ var includeLowerCase = "abcdefghijklmnopqrstuvwxyz"
 var includeNumbers = "0123456789"
 var includeSymbols = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
+var charSet = "writePassword"
+var userLength = "length"
 
-// Get references to the #generate element
+displayPassword = function (length) {
+  var password = writePassword(length);
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password
+}
+getPassLength = function () {
+
+  var length = prompt("Please choose a password length between 8 and 128.")
+  length = parseInt(length);
+  if (length > 7 && length < 129) {
+    return length;
+  }
+  else {
+    window.alert("You did not choose a valid number. Please try again.")
+    return getPassLength();
+  }
+}
+
 var generateBtn = document.querySelector("#generate")
 addEventListener('click', event => {
+  var length = getPassLength();
+  // put parse int statement here
+  displayPassword(length); // do not remove!!!
+// to evaluate whether the number chosen is between the parameter}
+})
 
-  userLength = prompt("Please choose a password length between 8 and 128 characters.");
-  console.log(userLength);
-
-
-  // to evaluate whether the number chosen is between the parameters
-  var userLength = parseInt(userLength);
-
-  if (userLength > 7 && userLength < 129) {
-
-    var includeCapitals = confirm("Would you like to include capital letters?");
+// Write password to the #password input
+writePassword = function (length) {
+  var includeCapitals = confirm("Would you like to include capital letters?");
     var includeLowerCase = confirm("Would you like to include lower case letters?");
     var includeNumbers = confirm("Would you like to include numbers?");
     var includeSymbols = confirm("Would you like to include symbols?");
 
-    console.log(includeCapitals);
-    console.log(includeLowerCase);
-    console.log(includeNumbers);
-    console.log(includeSymbols);
-
-    writePassword(includeCapitals, includeLowerCase, includeNumbers, includeSymbols);
-  }
-  else {
-    window.alert("You did not choose a valid number. Please try again.")
-  }
-
-})
-
-// Write password to the #password input
-writePassword = function () {
-
-  var passwordText = document.querySelector("#password");
 
   var charSet = ""
 
   if (includeCapitals === true) {
     charSet = charSet + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   }
-  else if (includeLowerCase === true) {
-    charSet = charSet + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz"
+  if (includeLowerCase === true) {
+    charSet = charSet + "abcdefghijklmnopqrstuvwxyz"
   }
-  else if (includeNumbers === true) {
-    charSet = charSet + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789"
+  if (includeNumbers === true) {
+    charSet = charSet + "0123456789"
   }
-  else if (includeSymbols === true) {
-    charSet = charSet + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-randomPasswordCreator();
+  if (includeSymbols === true) {
+    charSet = charSet + "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
   }
+  return randomPassword(length, charSet);
+
+  
 }
-randomPasswordCreator = function () {
 
+randomPassword = function (length, charSet) {
+ var password = ""
 
+  for (var i = 0; i < length; i++) {
 
-var count = 0;
-  for (var i = 0; i < userLength; i++) {
-    //picks a character within charSet at index of random number
-    randPassword = charSet.charAt(Math.floor(Math.random() * charSet.userLength));
-    count = count + 1;
-
-
-    console.log(randPassword);
-    return randPassword;
+    password += charSet.charAt(Math.floor(Math.random() * charSet.length++));
   }
-}
+    return password;
+  }
+
